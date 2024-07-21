@@ -1,0 +1,36 @@
+#Nginx and Docker Compose
+
+Docker Compose, a companion tool, simplifies the management of multi-container applications by allowing you to define and run them using a single YAML file.
+Docker Compose streamlines the process of running multiple containers, including your Nginx web server and any backend services your application might rely on.
+
+To get started you will first clone the ready-made repository where the files have been edited---
+
+                git clone git@github.com:geshan/nginx-docker-compose.git
+
+then create a new file name basic.yml 
+
+                cat basic.yml
+
+                vi basic.yml
+
+copy this code inside this file
+
+                version: '3.8'
+services:
+  nginx:
+    image: nginx:1-alpine
+    ports:
+      - 8089:80
+    volumes:
+      - ./html5up-stellar/:/usr/share/nginx/html
+
+to run this simple version of nginx with docker compose run the below command----
+
+                docker compose -f basic.yaml up
+
+
+
+
+To check the running app, open your favorite browser and point the tab to http://localhost:8089, you will see something like the below;
+
+     
